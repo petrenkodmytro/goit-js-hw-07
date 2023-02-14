@@ -49,12 +49,12 @@ function onShowImage(event) {
   });
 
   instance.show();
-}
 
-//  закриття модального вікна після натискання клавіші Escape
-function onCloseEsc(e) {
-  if (e.key === "Escape") {
-    instance.close();
+  //  закриття модального вікна після натискання клавіші Escape
+  function onCloseEsc(e) {
+    if (e.key === "Escape") {
+      instance.close();
+    }
   }
 }
 
