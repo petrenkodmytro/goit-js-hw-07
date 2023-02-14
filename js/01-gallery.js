@@ -34,27 +34,31 @@ function onShowImage(event) {
   // встановлюємоє новий шлях для зображення
   const newSrc = event.target.dataset.source;
 
+  // фунцція бібліотеки basicLightbox
   const instance = basicLightbox.create(`<img src="${newSrc}" width="800" height="600">`, {
     // Функция, выполняемая перед отображением лайтбокса.
     onShow: () => {
-      document.addEventListener("keydown", onCloseEsc); // додавання слухача подій
+      // додавання слухача подій
+      document.addEventListener("keydown", onCloseEsc);
     },
     // Функция, которая выполняется перед закрытием лайтбокса.
     onClose: () => {
-      document.removeEventListener("keydown", onCloseEsc); // видалення слухача подій
+      // видалення слухача подій
+      document.removeEventListener("keydown", onCloseEsc);
     },
   });
 
   instance.show();
+}
 
-  //  закриття модального вікна після натискання клавіші Escape
-  function onCloseEsc(e) {
-    if (e.key === "Escape") {
-      instance.close();
-    }
+//  закриття модального вікна після натискання клавіші Escape
+function onCloseEsc(e) {
+  if (e.key === "Escape") {
+    instance.close();
   }
 }
 
+// ------Завдання 1---------
 // Виконуй це завдання у файлах 01-gallery.html і 01-gallery.js. Розбий його на декілька підзавдань:
 // Створення і рендер розмітки на підставі масиву даних galleryItems і наданого шаблону елемента галереї.
 // Реалізація делегування на div.gallery і отримання url великого зображення.
